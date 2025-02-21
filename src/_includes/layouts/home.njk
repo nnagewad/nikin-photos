@@ -3,5 +3,12 @@
   <article>
     <h1>{{ title }}</h1>
     {{ content | safe }}
+    <ul>
+      {% for image in cloudinaryImages %}
+        <li>
+          <img src="{{ image.secure_url }}" alt="{{ image.public_id }}">
+        </li>
+      {% endfor %}
+    </ul>    
   </article>
 {% endblock %}
