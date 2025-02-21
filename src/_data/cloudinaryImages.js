@@ -33,6 +33,12 @@ export default async function () {
       nextCursor = data.next_cursor || null; // Get next page if available
     } while (nextCursor); // Continue fetching if more pages exist
 
+    // Add slug to each image object based on public_id
+    images = images.map(image => ({
+      ...image,
+      slug: image.public_id.replace(/\//g, "-"), // Replace slashes with dashes for URL-friendly slug
+    }));
+
     console.log(`Fetched ${images.length} images.`);
     return images; // Make images available to collections
   } catch (error) {
