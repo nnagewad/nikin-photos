@@ -1,6 +1,4 @@
 ---
 title: Nikin photos
-layout: layouts/home.njk
+layout: layouts/gallery.njk
 ---
-
-This is pretty _rad_, right?
