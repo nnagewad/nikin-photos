@@ -33,6 +33,12 @@ export default async function(eleventyConfig) {
     return content;
   });
 
+  // Create a collection from Cloudinary images
+  eleventyConfig.addCollection("cloudinaryGallery", async function () {
+    const cloudinaryImages = await import("./src/_data/cloudinaryImages.js").then(m => m.default());
+    return cloudinaryImages;
+  });
+
   return {
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',

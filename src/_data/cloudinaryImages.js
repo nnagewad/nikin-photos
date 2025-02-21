@@ -1,6 +1,6 @@
 import { NAME_CLOUDINARY, KEY_CLOUDINARY, SECRET_CLOUDINARY } from './cloudinaryApi.js';
 
-export default async function fetchAllCloudinaryImages() {
+export default async function () {
   const CLOUD_NAME = NAME_CLOUDINARY;
   const API_KEY = KEY_CLOUDINARY;
   const API_SECRET = SECRET_CLOUDINARY;
@@ -30,13 +30,13 @@ export default async function fetchAllCloudinaryImages() {
       const data = await response.json();
       images = images.concat(data.resources || []);
 
-      nextCursor = data.next_cursor || null; // Move to the next page if available
-    } while (nextCursor); // Continue fetching if next_cursor exists
+      nextCursor = data.next_cursor || null; // Get next page if available
+    } while (nextCursor); // Continue fetching if more pages exist
 
     console.log(`Fetched ${images.length} images.`);
-    return images;
+    return images; // Make images available to collections
   } catch (error) {
     console.error('Error fetching Cloudinary images:', error);
-    return []; // Return an empty array if an error occurs
+    return [];
   }
-}
+};
