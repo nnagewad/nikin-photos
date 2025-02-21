@@ -1,4 +1,4 @@
-import { NAME_CLOUDINARY, KEY_CLOUDINARY, SECRET_CLOUDINARY } from './cloudinaryApi.js';
+import { NAME_CLOUDINARY, KEY_CLOUDINARY, SECRET_CLOUDINARY } from './cloudinary-api.js';
 
 export default async function () {
   const CLOUD_NAME = NAME_CLOUDINARY;
