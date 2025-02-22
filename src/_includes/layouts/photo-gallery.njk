@@ -3,10 +3,10 @@
   <h1>{{ title }}</h1>
   {{ content | safe }}
   <ul>
-    {% for image in collections.cloudinaryGallery %}
+    {% for photo in collections.cloudinaryGallery %}
       <li>
-        <a href="images/{{ image.public_id }}">
-          <img src="{{ image.secure_url }}" alt="{{ image.public_id }}">
+        <a href="photos/{{ photo.public_id }}">
+          <img src="{{ photo.secure_url }}" alt="{{ photo.public_id }}">
         </a>
       </li>
     {% endfor %}

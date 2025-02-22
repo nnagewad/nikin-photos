@@ -1,0 +1,8 @@
+{% extends "layouts/base.njk" %} 
+{% block content %}
+  <h1>{{ photo.public_id }}</h1>
+  <img src="{{ photo.secure_url }}" alt="{{ photo.public_id }}">
+  <p>Format: {{ photo.format }}</p>
+  <p>Size: {{ photo.bytes }}</p>
+  <a href="/">Back to Home</a>
+{% endblock %}

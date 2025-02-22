@@ -1,4 +1,4 @@
 ---
 title: Nikin photos
-layout: layouts/gallery.njk
+layout: layouts/photo-gallery.njk
 ---
