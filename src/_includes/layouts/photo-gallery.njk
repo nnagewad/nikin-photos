@@ -6,31 +6,7 @@
     {% for photo in collections.cloudinaryGallery %}
       <li>
         <a href="photos/{{ photo.public_id }}">
-          <picture>
-            <!-- AVIF (best quality & smallest size) -->
-            <source 
-              type="image/avif" 
-              srcset="
-                {{ site.cloudinaryUrl }}w_300,f_avif/{{ photo.public_id }}.avif 300w,
-                {{ site.cloudinaryUrl }}w_600,f_avif/{{ photo.public_id }}.avif 600w,
-                {{ site.cloudinaryUrl }}w_900,f_avif/{{ photo.public_id }}.avif 900w"
-              sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px">
-            
-            <!-- WebP (fallback if AVIF is not supported) -->
-            <source 
-              type="image/webp" 
-              srcset="
-                {{ site.cloudinaryUrl }}w_300,f_webp/{{ photo.public_id }}.webp 300w,
-                {{ site.cloudinaryUrl }}w_600,f_webp/{{ photo.public_id }}.webp 600w,
-                {{ site.cloudinaryUrl }}w_900,f_webp/{{ photo.public_id }}.webp 900w"
-              sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px">
-            
-            <!-- JPEG (fallback if WebP & AVIF are not supported) -->
-            <img 
-              src="{{ site.cloudinaryUrl }}w_600/{{ photo.public_id }}.jpg" 
-              alt="{{ photo.public_id }}"
-              loading="lazy">
-          </picture>          
+          {% include 'partials/picture.njk' %}          
         </a>
       </li>
     {% endfor %}
