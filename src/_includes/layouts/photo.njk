@@ -1,6 +1,6 @@
 {% extends "layouts/base.njk" %} 
 {% block content %}
-  <h1>{{ photo.public_id }}</h1>
+  <h1>{{ photo.display_name }}</h1>
   {% include 'partials/picture.njk' %}
   <p>Created: {{ photo.created_at }}</p>
   <a href="/">Back to Home</a>
